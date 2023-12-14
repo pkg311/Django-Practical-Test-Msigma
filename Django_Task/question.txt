@@ -1,0 +1,29 @@
+ython assessment Msigma
+
+Create a Django application that allows users to create, view, update,
+and delete posts. The application should have the following features:
+
+1. User Registration: Users should be able to register an account by
+providing a username and password.
+
+2. User Login/Logout: Registered users can log in using their
+credentials and log out when they are done.
+
+3. Post Creation: Logged-in users can create new posts by entering a
+title and content for the post.
+
+4. Post Listing: All posts should be listed on the homepage with their
+titles and creation dates displayed.
+
+5. Post Detail View: Clicking on a post title from the home page will
+take the user to a detailed view of that specific post showing its
+title, content, author name, and creation date.
+
+6. Post Update/Delete: Only logged-in users who created a particular
+post should be able to edit or delete it.
+
+7. Users should be able to tag/mention each other(@username)
+
+
+We are most interested in your Django skills, so feel free to just have
+basic HTML frontend.

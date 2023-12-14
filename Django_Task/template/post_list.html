@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog Application</title>
+    <!-- Add CSS links or references for navigation styling -->
+    <style>
+        /* Add your CSS styles for navigation */
+        nav {
+            background-color: #333;
+            overflow: hidden;
+        }
+
+        nav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+         /* CSS styles for the hyperlink button */
+         .button {
+            display: inline-block;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            color: white;
+            background-color: #007bff; /* Change the background color */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background-color: #0056b3; /* Change the background color on hover */
+        }
+    </style>
+    {% block style %}
+        
+    {% endblock style %}
+    {% block script1 %}
+        
+    {% endblock script1 %}
+
+</head>
+<body>
+
+<nav>
+    <a href="{% url 'post_list' %}">Post List</a>
+    {% if request.session.userlogin %}
+    <a href="{% url 'create_post' %}">Create Post</a>
+    <a href="{% url 'logout' %}">Logout</a>
+    
+    {% else %}
+    <a href="{% url 'register' %}">Register</a>
+    <a href="{% url 'login' %}">Login</a>
+    {% endif %}
+    
+   
+    
+    <!-- Add more links as needed -->
+</nav>
+{% block content %}
+<div class="content">
+   
+        
+    
+    <h1>Post List</h1>
+    <ul>
+        {% for post in posts %}
+            <li>
+                <a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a>
+                <p>Created at: {{ post.created_at }}</p>
+                <!-- You can add other details here if needed -->
+            </li>
+        {% empty %}
+            <li>No posts available.</li>
+        {% endfor %}
+    </ul>
+    
+</div>
+{% endblock content %}
+{% block script2 %}
+    
+{% endblock script2 %}
+
+</body>
+</html>
